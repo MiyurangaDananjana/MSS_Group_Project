@@ -1,3 +1,6 @@
 @include('comman.header')
     @yield('home')
+    @yield('Task')
+    @yield('TaskShedule')
+    @yield('TaskMonitor')
 @include('comman.footer')

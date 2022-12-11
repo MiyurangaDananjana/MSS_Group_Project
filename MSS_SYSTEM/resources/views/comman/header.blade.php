@@ -17,6 +17,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('Template/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link href="{{asset('Template/css/progress.css')}}" rel="stylesheet">
 
 </head>
 
@@ -49,7 +50,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="{{ route('index') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Home</span>
                 </a>
@@ -81,7 +82,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="{{ route('Task') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Task Module</span>
                 </a>

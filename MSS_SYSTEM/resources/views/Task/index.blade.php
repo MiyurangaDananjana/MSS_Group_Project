@@ -20,7 +20,7 @@
                                 </a>
                             </div>
                             <div class="col-md-6">
-                                <a href="#">
+                                <a href="{{route('Task-monitor')}}">
                                     <div class="card shadow-sm p-3 mb-5 bg-white rounded">
                                         <div class="card-body text-center">
                                             <h1><i class="fa fa fa-desktop" aria-hidden="true"></i></h1>

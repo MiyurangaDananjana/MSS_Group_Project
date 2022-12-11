@@ -1,11 +1,21 @@
-</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </div> 
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
+            <footer class="sticky-footer bg-white top-0" style="margin-top: 527px;">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Lock Hood</span>
                     </div>
                 </div>
             </footer>
@@ -51,6 +61,48 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{asset('Template/js/sb-admin-2.min.js')}}"></script>
+
+
+    <script>
+
+        $(document).on("click",".newTaskCreate",function(){
+            $("#newTaskModal").modal("show");
+        });
+
+        $(document).on("click",".viewTaskDescription",function(){
+            $("#viewDescriptionModal").modal("show");
+            $("#TaskSheduledescription").text($(this).attr("data-value"));
+        });
+
+
+        $(function() {
+
+            $(".progress").each(function() {
+
+                var value = $(this).attr('data-value');
+                var left = $(this).find('.progress-left .progress-bar');
+                var right = $(this).find('.progress-right .progress-bar');
+
+                if (value > 0) {
+                if (value <= 50) {
+                    right.css('transform', 'rotate(' + percentageToDegrees(value) + 'deg)')
+                } else {
+                    right.css('transform', 'rotate(180deg)')
+                    left.css('transform', 'rotate(' + percentageToDegrees(value - 50) + 'deg)')
+                }
+                }
+
+            })
+
+            function percentageToDegrees(percentage) {
+
+                return percentage / 100 * 360
+
+            }
+
+       });
+
+    </script>
 
 </body>
 
