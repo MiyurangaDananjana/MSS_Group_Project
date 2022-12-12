@@ -21,7 +21,7 @@
                         <br>
                         <div class="d-flex align-items-center">
                             <h1 class="h1 mb-4 text-gray-800" style="text-transform:uppercase;text-align: left;">
-                                {{ Auth::user()->name }} <br/>wellcome to the lock hood
+                                {{Auth::user()->name}} <br/>wellcome to the lock hood
                             </h1>
                         </div>
 
