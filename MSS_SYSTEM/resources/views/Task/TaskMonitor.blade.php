@@ -50,23 +50,20 @@
 
                                                         <div class="card-body">
 
+                                                            
                                                           
                                                             <div class="shadow" style="padding:20px;">
-
-                                                                <!-- Progress bar 1 -->
-                                                                <div class="progress mx-auto" data-value="{{$allTaskRow->Progress}}">
-                                                                <span class="progress-left">
-                                                                     <span class="progress-bar border-primary" style="transform: rotate(108deg);"></span>
-                                                                </span>
-                                                                <span class="progress-right">
-                                                                    <span class="progress-bar border-primary" style="transform: rotate(180deg);"></span>
-                                                                </span>
-                                                                    <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-                                                                        <div class="h2 font-weight-bold">{{$allTaskRow->Progress}}<sup class="small">%</sup></div>
+                                                                <br/>
+                                                                <h1>{{$allTaskRow->Progress}}%</h1>
+                                                                <br/>
+                                                                <br/>
+                                                                <div class="progress">
+                                                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{$allTaskRow->Progress}}"
+                                                                    aria-valuemin="0" aria-valuemax="100" style="width:{{$allTaskRow->Progress}}%">
+                                                                    {{$allTaskRow->Progress}}%
                                                                     </div>
                                                                 </div>
                                                                 <!-- END -->
-
                                                             </div>
                                                                    
   

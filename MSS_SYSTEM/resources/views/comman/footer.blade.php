@@ -1,14 +1,4 @@
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </div> 
+     </div> 
             <!-- End of Main Content -->
 
             <!-- Footer -->
@@ -61,6 +51,11 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{asset('Template/js/sb-admin-2.min.js')}}"></script>
+    <script src="{{asset('slider/slider.js')}}"></script>
+
+    @if(Route::currentRoutename()=="kanban")
+    <script src="{{asset('comman/kanban.js')}} "></script>
+    @endif
 
 
     <script>
@@ -102,6 +97,17 @@
 
        });
 
+    </script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        })
     </script>
 
 </body>

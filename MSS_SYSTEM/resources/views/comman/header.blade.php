@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{Route::currentRoutename()}}</title>
 
     <!-- Custom fonts for this template-->
@@ -18,6 +18,7 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('Template/css/sb-admin-2.min.css')}}" rel="stylesheet">
     <link href="{{asset('Template/css/progress.css')}}" rel="stylesheet">
+    <link href="{{asset('slider/slider.css')}}" rel="stylesheet">
 
 </head>
 
@@ -87,6 +88,14 @@
                     <span>Task Module</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('kanban') }}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Kanban Tool</span>
+                </a>
+            </li>
+
 
 
             <!-- Divider -->

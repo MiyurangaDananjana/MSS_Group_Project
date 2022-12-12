@@ -3,4 +3,5 @@
     @yield('Task')
     @yield('TaskShedule')
     @yield('TaskMonitor')
+    @yield('kanban')
 @include('comman.footer')

@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\kanbancardTool;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +44,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/deleteTask', [TaskController::class, 'deleteTask'])->name('deleteTask');
     Route::post('/changeStstus', [TaskController::class, 'changeStstus'])->name('changeStstus');
     Route::get('/Task-monitor', [TaskController::class, 'TaskMonitor'])->name('Task-monitor');
-    
+
+
+    //kanban card
+    Route::get('/kanban', [kanbancardTool::class, 'kanban'])->name('kanban');    
+    Route::get('/kanban-cards', [kanbancardTool::class, 'kanbanCards'])->name('kanban-cards');
+    Route::post('/save-progress ', [kanbancardTool::class, 'saveprogress'])->name('save-progress '); 
+      
 });
 
 

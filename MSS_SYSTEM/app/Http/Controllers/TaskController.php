@@ -6,6 +6,7 @@ use App\Http\Controllers\Redirect;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Models\TaskList;
 use App\Models\User;
 use Validator;
@@ -36,7 +37,7 @@ class TaskController extends Controller
         'task_lists.Deadline',
         'task_lists.supervicer')
         ->join('users', 'users.id', '=', 'task_lists.createdUser')
-        //->where('countries.country_name', $country)
+        ->where('task_lists.createdUser', (int)Auth::user()->id)
         ->orderBy('task_lists.created_at','DESC')
         ->get();
 
@@ -76,8 +77,6 @@ class TaskController extends Controller
     }
 
 
-   
-
 
     function taskSheadule(Request $request){
         
@@ -103,7 +102,7 @@ class TaskController extends Controller
         ]);
 
         return redirect('Task-shedule')->with('msg','successfully created');
-
+        // -- redirect() use to redirect for a some route define on web.php
     }
 
 
@@ -121,9 +120,13 @@ class TaskController extends Controller
         'task_lists.created_at',
         'task_lists.supervicer')
         ->join('users', 'users.id', '=', 'task_lists.createdUser')
+        ->where('task_lists.createdUser', (int)Auth::user()->id)
         ->orderBy('task_lists.created_at','DESC')
         ->get();
 
         return view('Task.TaskMonitor',compact('tasks'));
     }
+
+
+    
 }
