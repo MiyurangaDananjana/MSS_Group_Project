@@ -69,6 +69,10 @@
             $("#TaskSheduledescription").text($(this).attr("data-value"));
         });
 
+        $(document).on("click",".reportModalBtn",function(){
+            $("#reportModal").modal("show");
+        });
+
 
         $(function() {
 

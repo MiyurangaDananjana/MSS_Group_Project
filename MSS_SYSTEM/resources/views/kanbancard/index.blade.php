@@ -18,8 +18,8 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-flex align-items-center">
-        <div class="card w-100">
-            <div class="card-body">
+        <div class="w-100">
+            <div class="">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row">
@@ -30,7 +30,11 @@
                                 <div class="card-body">
                                     <div>
                                         <div class="row" id="canbankCarsList">
-                                            <img src="{{asset('Template/loading/99297-loading-files.gif')}}" class="img-fluid">
+                                            <div class="col-md-4"></div>
+                                            <div class="col-md-4">
+                                                <img src="{{asset('Template/loading/99297-loading-files.gif')}}" class="img-fluid">
+                                            </div>
+                                            <div class="col-md-4"></div>
                                         </div>
                                     </div>
                                         

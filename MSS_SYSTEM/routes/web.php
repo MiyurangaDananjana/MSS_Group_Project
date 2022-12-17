@@ -5,6 +5,7 @@ use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\kanbancardTool;
+use App\Http\Controllers\finanace;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,7 +51,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/kanban', [kanbancardTool::class, 'kanban'])->name('kanban');    
     Route::get('/kanban-cards', [kanbancardTool::class, 'kanbanCards'])->name('kanban-cards');
     Route::post('/save-progress ', [kanbancardTool::class, 'saveprogress'])->name('save-progress '); 
-      
+    
+    //finnace manager
+    Route::get('/finance', [finanace::class, 'index'])->name('finance');
+    Route::get('/income', [finanace::class, 'income'])->name('income');
+    Route::get('/expence', [finanace::class, 'expence'])->name('expence');
+    Route::post('/incomeExpencesSave', [finanace::class, 'incomeExpencesSave'])->name('incomeExpencesSave'); 
+    Route::post('/deleteIncomExpences', [finanace::class, 'deleteIncomExpences'])->name('deleteIncomExpences'); 
+    Route::post('/editIncomExpences', [finanace::class, 'editIncomExpences'])->name('editIncomExpences'); 
+    Route::get('/incomeExpencesReoprt', [finanace::class, 'incomeExpencesReoprt'])->name('incomeExpencesReoprt'); 
+    
 });
 
 
