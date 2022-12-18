@@ -3,7 +3,7 @@ $(document).ready(function() {
     var cards = ``
 
     $.ajax({
-        url: "/kanban-cards",
+        url: "/MSS/MSS_System/public/kanban-cards",
         type: "GET",
         success: function(data) {
 
@@ -83,7 +83,7 @@ $(document).ready(function() {
         timer = setTimeout(function() {
             $.ajax({
                 type: 'POST',
-                url: '/save-progress',
+                url: '/MSS/MSS_System/public/save-progress',
                 data: { 'val': val, 'taskID': taskID },
                 success: function(data) {
 

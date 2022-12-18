@@ -138,6 +138,7 @@ class finanace extends Controller
             'expences.Description',
             'expences.created_at')
             ->join('users', 'users.id', '=', 'expences.user_id')
+            ->whereBetween('expences.created_at', [$request->strDate, $request->endDate])
             ->orderBy('expences.created_at','DESC')
             ->get();
 
@@ -166,8 +167,16 @@ class finanace extends Controller
             ->get();
 
 
-            $pdf = PDF::loadView('report.incomeReport');
-            return $pdf->download('income.pdf');
+            $data = [
+                'title' => 'Welcome to ItSolutionStuff.com',
+                'dateStr' => $request->strDate,
+                'dateEnd' => $request->endDate,
+                'expences' => $income
+            ];
+
+
+            $pdf = PDF::loadView('report.incomeReport',$data)->setOptions(['defaultFont' => 'sans-serif','isHtml5ParserEnabled'=>true]);
+            return $pdf->download('incomeReport.pdf');
         }
         
 

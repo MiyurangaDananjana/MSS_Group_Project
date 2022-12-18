@@ -19,7 +19,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-12 text-info">
-                            <b><a href="#" class="reportModalBtn">Download Income Report</a></b>
+                            <b><a href="#" class="reportModalBtn">Download Expence Report</a></b>
                         </div>
                         <div class="col-md-4">
                             <lable>Amount</lable>

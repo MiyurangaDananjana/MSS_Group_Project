@@ -11,8 +11,7 @@
                         <img src="{{asset('Template/img/Home/75705-welcome-animation.gif')}}" class="img-fluid">
                     </div>
                     <div class="col-md-8">
-                        <br>
-                        <br>
+                      
                         <br>
                         <br>
                         <br>

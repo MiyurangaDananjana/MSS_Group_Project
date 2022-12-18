@@ -27,7 +27,7 @@
             <div class="card-body">
                 <div class="text-center text-uppercase">
                     <h4>Expences Report</h4>
-                    <h5>{{$dateStr}}  TO  {{$dateEnd}}</h5>
+                    <h6>{{$dateStr}}  To  {{$dateEnd}}</h5>
                 </div>
                 <table class="table">
                     <thead>
