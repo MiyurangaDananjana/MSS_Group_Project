@@ -57,7 +57,7 @@
                                                         <button class="btn btn-success viewTaskDescription" data-value="{{$allTaskRow->TaskDescription}}">View</button>
                                                     
                                                     </td>
-                                                    <td>{{$allTaskRow->factory}}</td>
+                                                    <td>Factory {{$allTaskRow->factory}}</td>
                                                     <td>@if($allTaskRow->Status==1)
                                                             Active
                                                         @else
@@ -66,7 +66,15 @@
                                                     </td>
                                                     <td>{{$allTaskRow->Progress}}</td>
                                                     <td style="color:red;"><b>{{$allTaskRow->Deadline}}</b></td>
-                                                    <td>{{$allTaskRow->supervicer}}</td>
+                                                    <td>
+
+                                                        @foreach($supervicers as $supervicer)
+                                                            @if($allTaskRow->supervicer==$supervicer->id)
+                                                                {{$supervicer->name}}
+                                                            @endif
+                                                        @endforeach
+
+                                                    </td>
                                                     <td style="display: flex;">
 
                                                         <form method="POST" action="{{ route('deleteTask') }}">
@@ -134,10 +142,9 @@
                                 <div class="form-group col-md-6">
                                     <label for="inputEmail4">Supervicer</label>
                                     <select name="supervicer" required class="form-control @error('supervicer') is-invalid @enderror">
-                                        <option value="1">supervicer 1</option>
-                                        <option value="2">supervicer 2</option>
-                                        <option value="3">supervicer 3</option>
-                                        <option value="4">supervicer 4</option>
+                                        @foreach($supervicers as $supervicer)
+                                            <option value="{{$supervicer->id}}">{{$supervicer->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

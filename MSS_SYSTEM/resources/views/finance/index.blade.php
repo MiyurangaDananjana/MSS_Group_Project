@@ -13,7 +13,7 @@
                                 <a href="{{route('income')}}">
                                     <div class="card shadow-sm p-3 mb-5 bg-white rounded">
                                         <div class="card-body text-center">
-                                            <h1><i class="fa fa-money" aria-hidden="true"></i></h1>
+                                        <img src="https://img.icons8.com/fluency/512/bank-card-dollar.png" alt="" style="width:100px;">
                                             <h1>Income</h1>
                                         </div>
                                     </div>
@@ -23,7 +23,7 @@
                                 <a href="{{route('expence')}}">
                                     <div class="card shadow-sm p-3 mb-5 bg-white rounded">
                                         <div class="card-body text-center">
-                                            <h1><i class="fa fa-exclamation-circle " aria-hidden="true"></i></h1>
+                                        <img src="https://img.icons8.com/fluency/512/expand-arrow.png" alt="" style="width:100px;">
                                             <h1>Expences</h1>
                                         </div>
                                     </div>

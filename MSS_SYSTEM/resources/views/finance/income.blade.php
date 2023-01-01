@@ -100,7 +100,7 @@
                                     @csrf
                                     <input type="hidden" name="incomeId" value="{{$incomeItem->incomeId}}">
                                     <input type="hidden" name="type" value="income" class="formcontrole">
-                                    <button type="submit" onclick="return confirm('Are you sure you want to do that?');" class="btn btn-danger">Edit</button>
+                                    <button type="submit" onclick="return confirm('Are you sure you want to do that?');" class="btn btn-danger">Delete</button>
                                 </form>
                             </td>
                         </tr>

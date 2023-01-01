@@ -1,3 +1,19 @@
+<?php
+
+    use App\Models\User;
+    use App\Models\AccessLevels;
+    use Illuminate\Support\Facades\DB;
+    use Illuminate\Support\Facades\Auth;
+
+    $usersAccesslevels = DB::table('access_levels')
+    ->select('Finanace_Module',
+                 'purchasingModule',
+                 'factoryModule',
+                 'Reports')
+    ->where('user_id', (int)Auth::user()->id)->first();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,14 +73,20 @@
                 </a>
             </li>
 
+
+
+            @if((int)Auth::user()->Position=="HR" || Auth::user()->Position=="toplevel")
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="{{ route('hr_module') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>HR Module</span>
                 </a>
             </li>
+            @endif
 
+
+            @if($usersAccesslevels->Finanace_Module==1 || Auth::user()->Position=="toplevel")
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('finance') }}">
@@ -72,30 +94,52 @@
                     <span>Finance Module</span>
                 </a>
             </li>
+            @endif
 
+
+
+            @if($usersAccesslevels->purchasingModule==1 || Auth::user()->Position=="toplevel")
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="{{route('Inventory')}}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Inventory Module</span>
                 </a>
             </li>
+            @endif
 
+
+
+            @if($usersAccesslevels->factoryModule==1 || Auth::user()->Position=="toplevel")
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('Task') }}">
+                <a class="nav-link" href="{{route('Task')}}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Task Module</span>
                 </a>
             </li>
+            @endif
 
+
+
+            @if((int)Auth::user()->Position=="superviser" || Auth::user()->Position=="toplevel")
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('kanban') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Kanban Tool</span>
                 </a>
             </li>
+            @endif
 
+
+            @if((int)Auth::user()->Position=="superviser" || Auth::user()->Position=="toplevel")
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('reportAccess') }}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Report Access</span>
+                </a>
+            </li>
+            @endif
 
 
             <!-- Divider -->
@@ -144,8 +188,8 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->name}}</span>
+                                <img class="img-profile rounded-circle" src="https://img.icons8.com/color/512/name.png">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

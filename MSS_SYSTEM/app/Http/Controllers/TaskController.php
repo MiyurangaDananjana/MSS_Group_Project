@@ -30,6 +30,7 @@ class TaskController extends Controller
         ->select('task_lists.TaskDescription',
         'task_lists.TaskName',
         'users.name',
+        'users.name',
         'task_lists.TaskId',
         'task_lists.factory',
         'task_lists.Status',
@@ -41,7 +42,13 @@ class TaskController extends Controller
         ->orderBy('task_lists.created_at','DESC')
         ->get();
 
-        return view('Task.taskSheadule',compact('tasks'));
+        $supervicers = DB::table('users')
+        ->select('users.name','users.id')
+        ->where('users.Position', "superviser")
+        ->get();
+
+
+        return view('Task.taskSheadule',compact('tasks','supervicers'));
     //--with compact method we can pass table data the view
 
     }

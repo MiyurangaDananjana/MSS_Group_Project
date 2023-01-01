@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\kanbancardTool;
 use App\Http\Controllers\finanace;
+use App\Http\Controllers\inventory;
+use App\Http\Controllers\HRController;
+use App\Http\Controllers\reports;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +64,30 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/deleteIncomExpences', [finanace::class, 'deleteIncomExpences'])->name('deleteIncomExpences'); 
     Route::post('/editIncomExpences', [finanace::class, 'editIncomExpences'])->name('editIncomExpences'); 
     Route::get('/incomeExpencesReoprt', [finanace::class, 'incomeExpencesReoprt'])->name('incomeExpencesReoprt'); 
+    
+
+    Route::get('/Inventory', [inventory::class, 'Inventory'])->name('Inventory'); 
+    Route::get('/InventoryControle', [inventory::class, 'InventoryControle'])->name('InventoryControle'); 
+    Route::get('/Items', [inventory::class, 'ItemIndex'])->name('Items'); 
+
+    Route::post('/saveItem', [inventory::class, 'saveItem'])->name('saveItem'); 
+    Route::post('/saveCategory', [inventory::class, 'saveCategory'])->name('saveCategory'); 
+    Route::post('/updateItem', [inventory::class, 'updateItem'])->name('updateItem'); 
+    Route::post('/deleteItem', [inventory::class, 'deleteItem'])->name('deleteItem'); 
+    Route::post('/controleInventory', [inventory::class, 'controleInventory'])->name('controleInventory'); 
+
+
+    Route::get('/hr_module', [HRController::class, 'hr_module'])->name('hr_module'); 
+    Route::get('/hr_users', [HRController::class, 'hr_users'])->name('hr_users'); 
+    Route::get('/hr_create', [HRController::class, 'hr_create'])->name('hr_create'); 
+    Route::post('/hr_new_user_create', [HRController::class, 'hr_new_user_create'])->name('hr_new_user_create'); 
+    Route::GET('/hr_new_user_edit', [HRController::class, 'hr_new_user_edit'])->name('hr_new_user_edit'); 
+    Route::post('/editUser', [HRController::class, 'editUser'])->name('editUser'); 
+
+
+
+    Route::get('/reportAccess', [reports::class, 'reportAccess'])->name('reportAccess'); 
+    
     
 });
 

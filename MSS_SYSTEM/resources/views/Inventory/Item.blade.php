@@ -15,7 +15,7 @@
                 </div>
                 <br/> @endif
 
-                
+
 
                 <form method="POST" action="{{route('saveItem')}}">
                     @csrf
@@ -27,7 +27,7 @@
                         <div class="col-md-6">
                             <lable>Category</lable>
                             <br/>
-                           
+
                             <select required name="categoryId" class="form-control btn-block">
                             @foreach($category as $item)
                                 <option value="{{$item->categoriesId}}">{{$item->Name}}</option>
@@ -94,22 +94,47 @@
                     <tbody>
 
 
-             
-
                         @foreach($items as $key=>$item)
                         <tr>
-                            <td>{{$key+1}}</td>
-                            <td>{{$item->Name}}</td>
-                            <td>{{$item->category_id}}</td>
-                            <td>{{$item->ItemPrice}}</td>
-                            <td>{{$item->ReorderLevel}}</td>
-                            <td>{{$item->Quantity}}</td>
-                            <td><button class="btn btn-danger btn-sm">Delete</td>
+                            <form method="POST" action="{{route('updateItem')}}">
+                                @csrf
+                                <td>{{$key+1}}</td>
+                                <td>
+                                    <input type="text" required name="itemName" value="{{$item->Name}}" class="form-control btn-block">
+                                    <input type="hidden" required name="itemId" value="{{$item->itemId}}" class="form-control btn-block">
+                                </td>
+                                <td>
+                                    <select required name="categoryId" class="form-control btn-block">
+                                        @foreach($category as $key)
+                                            @if($item->category_id==$key->categoriesId)
+                                            <option selected value="{{$key->categoriesId}}">{{$key->Name}}</option>
+                                            @else
+                                            <option  value="{{$key->categoriesId}}">{{$key->Name}}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="number" required name="ItemPrice" value="{{$item->ItemPrice}}" class="form-control btn-block">
+                                </td>
+                                <td>
+                                    <input type="number" required name="ReorderLevel" value="{{$item->ReorderLevel}}" class="form-control btn-block">
+                                </td>
+                                <td><input type="number" required name="Quantity" class="form-control btn-block" value="{{$item->Quantity}}">
+                                </td>
+
+                                <td style="display: flex;">
+                                    <button type="submit" class="btn btn-warning btn-sm">update</button>
+                            </form>
+                            <form method="POST" action="{{route('deleteItem')}}" style="display: flex;">
+                                @csrf
+                                <input type="hidden" required name="itemId" value="{{$item->itemId}}" class="form-control btn-block">
+                                <button type="submit" onclick="return confirm('Are you sure you want to do that?');" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
-
-                  
                 </table>
             </div>
         </div>

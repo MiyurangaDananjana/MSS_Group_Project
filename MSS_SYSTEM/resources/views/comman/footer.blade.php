@@ -73,6 +73,26 @@
             $("#reportModal").modal("show");
         });
 
+        $(document).on("click",".CategoryModal",function(){
+            $("#categoryModal").modal("show");
+        });
+
+
+        
+        $(document).on("click",".reportAccessModal",function(){
+            $("#reportType").val($(this).attr("data-id"))
+            $("#reportModal").modal("show");
+        });
+
+        $(document).on("click",".reportAccessModalInventorySummery",function(){
+            $("#inventorySummeryreportModal").modal("show");
+        });
+        
+        $(document).on("click",".reportAccessModalInventoryBehaviours",function(){
+            $("#inventoryBehavioursreportModal").modal("show");
+        });
+        
+
 
         $(function() {
 

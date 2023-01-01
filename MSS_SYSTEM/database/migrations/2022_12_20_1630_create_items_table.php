@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('ItemPrice');
             $table->integer('ReorderLevel');
             $table->integer('Quantity');
+            $table->integer('Method');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('categoriesId')->on('categories')->onDelete('cascade');

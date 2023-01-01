@@ -99,7 +99,7 @@
                                     @csrf
                                     <input type="hidden" name="excencesId" value="{{$expencesItem->excencesId}}">
                                     <input type="hidden" name="type" value="expences" class="formcontrole">
-                                    <button type="submit" onclick="return confirm('Are you sure you want to do that?');" class="btn btn-danger">Edit</button>
+                                    <button type="submit" onclick="return confirm('Are you sure you want to do that?');" class="btn btn-danger">Delete</button>
                                 </form>
                             </td>
                         </tr>
